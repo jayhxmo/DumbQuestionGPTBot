@@ -1,0 +1,7 @@
+{
+    "name": "dumb-question-gpt-bot",
+    "dependencies": {
+        "node-telegram-bot-api": "^0.61.0",
+        "openai": "^3.3.0"
+    }
+}

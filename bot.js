@@ -1,30 +1,23 @@
-const TelegramBot = require("node-telegram-bot-api");
-const dotenv = require("dotenv").config();
+// const { Telegraf } = require('telegraf');
+// const bot = new Telegraf(process.env.botToken);
 
-// replace the value below with the Telegram token you receive from @BotFather
-const token = process.env.botToken;
+// bot.command('start', ctx => {
+//     console.log(ctx.from)
+//     bot.telegram.sendMessage(ctx.chat.id, 'Hello there!', {
+//     })
+// })
 
-// Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(token, { polling: true });
+// // copy every message and send to the user
+// bot.on('message', (ctx) => ctx.telegram.sendCopy(ctx.chat.id, ctx.message))
 
-// Matches "/echo [whatever]"
-bot.onText(/\/echo (.+)/, (msg, match) => {
-  // 'msg' is the received Message from Telegram
-  // 'match' is the result of executing the regexp above on the text content
-  // of the message
-
-  const chatId = msg.chat.id;
-  const resp = match[1]; // the captured "whatever"
-
-  // send back the matched "whatever" to the chat
-  bot.sendMessage(chatId, resp);
-});
-
-// Listen for any kind of message. There are different kinds of
-// messages.
-bot.on("message", (msg) => {
-  const chatId = msg.chat.id;
-
-  // send a message to the chat acknowledging receipt of their message
-  bot.sendMessage(chatId, "Received your message");
-});
+// // Start webhook via launch method (preferred)
+// bot.launch({
+//     webhook: {
+//       domain: process.env.URL,
+//       port: process.env.PORT
+//     }
+//   })
+  
+// // Enable graceful stop
+// process.once('SIGINT', () => bot.stop('SIGINT'))
+// process.once('SIGTERM', () => bot.stop('SIGTERM'))
